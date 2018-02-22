@@ -1,26 +1,62 @@
 class SmartCalculator {
   constructor(initialValue) {
-    // your implementation
+    this.value=''+initialValue;
+    this.result=0;
+  }
+
+  remember(obj,num) {
+    num.value=obj.value;
+    num.remember=obj.remember;
+    num.add=obj.add;
+    num.subtract=obj.subtract;
+    num.multiply=obj.multiply;
+    num.devide=obj.devide;
+    num.pow=obj.pow;
   }
 
   add(number) {
-    // your implementation
+    this.value+='+'+number;
+    this.result=eval(this.value);
+    let num=new Number(this.result);
+    let obj=new SmartCalculator(this.value);
+    this.remember(obj,num);
+    return num;
   }
-  
+
   subtract(number) {
-    // your implementation
+    this.value+='-'+number;
+    this.result=eval(this.value);
+    let num=new Number(this.result);
+    let obj=new SmartCalculator(this.value);
+    this.remember(obj,num);
+    return num;
   }
 
   multiply(number) {
-    // your implementation
+    this.value+='*'+number;
+    this.result=eval(this.value);
+    let num=new Number(this.result);
+    let obj=new SmartCalculator(this.value);
+    this.remember(obj,num);
+    return num;
   }
 
   devide(number) {
-    // your implementation
+    this.value+='/'+number;
+    this.result=eval(this.value);
+    let num=new Number(this.result);
+    let obj=new SmartCalculator(this.value);
+    this.remember(obj,num);
+    return num;
   }
 
   pow(number) {
-    // your implementation
+    this.value+='**'+number;
+    this.result=eval(this.value);
+    let num=new Number(this.result);
+    let obj=new SmartCalculator(this.value);
+    this.remember(obj,num);
+    return num;
   }
 }
 
